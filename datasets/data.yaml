@@ -1,0 +1,7 @@
+path: C:/Users/Thilipan/Desktop/face_dataset 
+
+train: images
+val: images
+
+nc: 6
+names: ['abhi', 'avinash', 'dinesh', 'moureesh', 'rohith', 'thilipan']
