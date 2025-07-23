@@ -1,53 +1,41 @@
-Friends Face Detection using YOLOv8
-This project uses YOLOv8 to detect and classify faces of characters from the Friends TV show.
+# Friends Face Detection using YOLOv8
 
- Project Structure
-graphql
-Copy
-Edit
-friends-face-detection-yolov8/
-│
-├── images/                 # Raw dataset images
-├── labels/                 # YOLO-format label files
-├── metrics/                # Evaluation outputs (e.g., val batches)
-├── train_batch/           # Training image samples with predicted boxes
-├── val_batch/             # Validation image samples with predicted boxes
-├── data.yaml              # YOLO config file (class names, paths)
-├── train_data.py          # Dataset preprocessing script
-├── requirements.txt       # Python dependencies
-├── README.md              # Project documentation
+This project uses YOLOv8 for detecting and identifying faces of six friends from a custom dataset. It includes data preparation, training, and webcam-based inference.
 
- Features
-Trained on a custom dataset of Friends characters
+## Project Structure
 
-YOLOv8 model fine-tuned with labeled face data
+- images/        - Training images
+- labels/        - YOLO labels for images
+- train_batch/   - Sample detections from training data
+- val_batch/     - Sample detections from validation data
+- metrics/       - Training results and metrics
+- data.yaml      - Dataset configuration for YOLO
+- train_data.py  - Script for training and running detection
+- requirements.txt
 
-Clean structure and modular code for retraining and extension
+## How to Run
 
- How to Run
-1. Install dependencies
-bash
-Copy
-Edit
+Install requirements:
 pip install -r requirements.txt
-2. Train the model
-bash
+
+yaml
 Copy
 Edit
-yolo detect train data=data.yaml model=yolov8n.pt epochs=50 imgsz=640
-📊 Dataset
-Collected images of main characters from Friends
 
-Labeled using Roboflow in YOLO format
+Run training:
+python train_data.py
 
-Split into training and validation sets
+markdown
+Copy
+Edit
 
-🔧 Future Improvements
-Add more characters and samples
+Run webcam detection is handled inside `train_data.py`.
 
-Improve accuracy using deeper YOLO variants (e.g., yolov8m)
+## Sample Outputs
 
-Auto-labeling pipeline for bulk images
+Example detections on training and validation images are provided in `train_batch/` and `val_batch/`. Training metrics are in `metrics/`.
 
-Add webcam-based real-time detection
-
+## Requirements
+- Python 3.13
+- YOLOv8 (Ultralytics)
+- OpenCV
